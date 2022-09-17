@@ -17,9 +17,31 @@ let List_9 = 0
 let List_10 = 0
 let List_11 = 0
 let List_12 = 0
-let List_13 = 0
 let List_14 = 0
 let Tentative_Value = 0
+let Allow_Chenge_Setting = 0
+let List_13 = 0
+let Setting_Data = ""
+let Program_1 = ""
+let Program_2 = ""
+let Program_3 = ""
+let Program_4 = ""
+let Program_5 = ""
+let Program_6 = ""
+let Program_7 = ""
+let Program_8 = ""
+let Program_9 = ""
+let Program_10 = ""
+let Program_11 = ""
+let Program_12 = ""
+let Program_13 = ""
+let Program_14 = ""
+let Program_15 = ""
+let Program_16 = ""
+let Program_17 = ""
+let Program_18 = ""
+let Program_19 = ""
+let Program_20 = ""
 function Chenge_Item_Real () {
     if (Chenge_Item == 1) {
         List_Number += -1
@@ -57,6 +79,9 @@ function Chenge_Mode_Value () {
         Chenge_Mode = 2
     }
 }
+function Main_Command () {
+	
+}
 function Chenge_Value_Value () {
     if (pins.digitalReadPin(DigitalPin.P6) == 1) {
         Chenge_Value = 1
@@ -82,7 +107,7 @@ function Chenge_Mode_Real () {
 }
 function Chenge_Item_List () {
     if (List_Number == 1) {
-        basic.showString("L1")
+        basic.showString("Data Number")
         while (Confirmation == 0) {
             basic.pause(1000)
         }
@@ -90,7 +115,7 @@ function Chenge_Item_List () {
         basic.showString("" + (List_1))
     }
     if (List_Number == 2) {
-        basic.showString("L2")
+        basic.showString("Pause Time")
         while (Confirmation == 0) {
             basic.pause(1000)
         }
@@ -98,7 +123,7 @@ function Chenge_Item_List () {
         basic.showString("" + (List_2))
     }
     if (List_Number == 3) {
-        basic.showString("L3")
+        basic.showString("kaisuu")
         while (Confirmation == 0) {
             basic.pause(1000)
         }
@@ -178,14 +203,6 @@ function Chenge_Item_List () {
         basic.showString("" + (List_12))
     }
     if (List_Number == 13) {
-        basic.showString("L13")
-        while (Confirmation == 0) {
-            basic.pause(1000)
-        }
-        List_13 = Decision_Value
-        basic.showString("" + (List_13))
-    }
-    if (List_Number == 14) {
         basic.showString("OK?")
         while (Confirmation == 0) {
             basic.pause(1000)
@@ -218,12 +235,19 @@ function Setting_Chenge () {
     Mojiretu_CHENGE_SETTING()
     List_Number = 1
     Reset_Setting_List()
-    Chenge_Item_List()
+    Allow_Chenge_Setting = 1
+    while (Allow_Chenge_Setting == 1) {
+        Chenge_Item_List()
+    }
 }
 function apply_list () {
-    if (List_14 == 1) {
-        List_14 = 0
+    if (List_13 == 1) {
+        List_13 = 0
+        Write_Setting()
         basic.showString("Complete Apply!")
+        Allow_Chenge_Setting = 0
+    } else {
+        List_Number = 12
     }
 }
 function シリアルポートの設定２段階目 () {
@@ -249,31 +273,71 @@ function シリアルポートの設定２段階目 () {
     }
 }
 function Reset_Setting_List () {
-    let SettingList: number[] = []
-    SettingList[0] = 0
-    SettingList[1] = 0
-    SettingList[2] = 0
-    SettingList[3] = 0
-    SettingList[4] = 0
-    SettingList[5] = 0
-    SettingList[6] = 0
-    SettingList[7] = 0
-    SettingList[8] = 0
-    SettingList[9] = 0
-    SettingList[10] = 0
-    SettingList[11] = 0
-    SettingList[12] = 0
-    SettingList[13] = 0
-    SettingList[14] = 0
-    SettingList[15] = 0
-    SettingList[16] = 0
+    List_1 = 0
+    List_2 = 0
+    List_3 = 0
+    List_4 = 0
+    List_5 = 0
+    List_6 = 0
+    List_7 = 0
+    List_8 = 0
+    List_9 = 0
+    List_10 = 0
+    List_11 = 0
+    List_12 = 0
+    List_13 = 0
+    List_14 = 0
 }
 function BackOne_or_Back_10 () {
-    if (1 < List_Number) {
-        List_Number = 10
+    if (List_Number == 0) {
+        List_Number = 12
     }
-    if (10 > List_Number) {
-        List_Number = 1
+    if (List_Number == 14) {
+        List_Number = 12
+    }
+}
+function Write_Setting () {
+    Setting_Data = "" + List_1 + "," + List_2 + "," + List_3 + "," + List_4 + "," + List_5 + "," + List_6 + "," + List_7 + "," + List_8 + "," + List_9 + "," + List_10 + "," + List_11 + "," + List_12
+    if (Setting_Data.split("=")[0] == "1") {
+        Program_1 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "2") {
+        Program_2 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "3") {
+        Program_3 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "4") {
+        Program_4 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "5") {
+        Program_5 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "6") {
+        Program_6 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "7") {
+        Program_7 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "8") {
+        Program_8 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "9") {
+        Program_9 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "10") {
+        Program_10 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "11") {
+        Program_11 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "12") {
+        Program_12 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "13") {
+        Program_13 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "14") {
+        Program_14 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "15") {
+        Program_15 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "16") {
+        Program_16 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "17") {
+        Program_17 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "18") {
+        Program_18 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "19") {
+        Program_19 = Setting_Data
+    } else if (Setting_Data.split("=")[0] == "10") {
+        Program_20 = Setting_Data
     }
 }
 function Mojiretu_CHENGE_SETTING () {
@@ -302,7 +366,7 @@ control.inBackground(function () {
     Chenge_Item_Value()
 })
 control.inBackground(function () {
-	
+    BackOne_or_Back_10()
 })
 control.inBackground(function () {
     Chenge_Value_Value()
