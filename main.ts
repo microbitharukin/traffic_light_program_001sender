@@ -2,6 +2,7 @@ let Chenge_Item = 0
 let List_Number = 0
 let Chenge_SerialPort = 0
 let Chenge_Mode = 0
+let Program_1 = ""
 let Chenge_Value = 0
 let Confirmation = 0
 let List_1 = 0
@@ -22,7 +23,6 @@ let Tentative_Value = 0
 let Allow_Chenge_Setting = 0
 let List_13 = 0
 let Setting_Data = ""
-let Program_1 = ""
 let Program_2 = ""
 let Program_3 = ""
 let Program_4 = ""
@@ -42,6 +42,7 @@ let Program_17 = ""
 let Program_18 = ""
 let Program_19 = ""
 let Program_20 = ""
+let Allow_Run_Data = 0
 function Chenge_Item_Real () {
     if (Chenge_Item == 1) {
         List_Number += -1
@@ -51,6 +52,39 @@ function Chenge_Item_Real () {
         List_Number += 1
         Chenge_Item = 0
     }
+}
+function reset_karidata () {
+    let karidata: number[] = []
+    karidata[1] = 0
+    karidata[2] = 0
+    karidata[3] = 0
+    karidata[4] = 0
+    karidata[5] = 0
+    karidata[6] = 0
+    karidata[7] = 0
+    karidata[8] = 0
+    karidata[9] = 0
+    karidata[10] = 0
+    karidata[11] = 0
+    karidata[12] = 0
+    karidata[13] = 0
+    karidata[14] = 0
+    karidata[15] = 0
+    karidata[16] = 0
+    karidata[17] = 0
+    karidata[18] = 0
+    karidata[19] = 0
+    karidata[20] = 0
+    karidata[21] = 0
+    karidata[22] = 0
+    karidata[23] = 0
+    karidata[24] = 0
+    karidata[25] = 0
+    karidata[26] = 0
+    karidata[27] = 0
+    karidata[28] = 0
+    karidata[29] = 0
+    karidata[30] = 0
 }
 function Chenge_Item_Value () {
     if (pins.digitalReadPin(DigitalPin.P11) == 1) {
@@ -79,8 +113,12 @@ function Chenge_Mode_Value () {
         Chenge_Mode = 2
     }
 }
-function Main_Command () {
-	
+function Main_Command (Run_OK: number) {
+    while (Run_OK == 1) {
+        if (true) {
+            serial.writeLine(Program_1)
+        }
+    }
 }
 function Chenge_Value_Value () {
     if (pins.digitalReadPin(DigitalPin.P6) == 1) {
@@ -336,9 +374,11 @@ function Write_Setting () {
         Program_18 = Setting_Data
     } else if (Setting_Data.split("=")[0] == "19") {
         Program_19 = Setting_Data
-    } else if (Setting_Data.split("=")[0] == "10") {
+    } else if (Setting_Data.split("=")[0] == "20") {
         Program_20 = Setting_Data
     }
+    reset_karidata()
+    Allow_Run_Data = 0
 }
 function Mojiretu_CHENGE_SETTING () {
     basic.showString("C")
@@ -356,9 +396,6 @@ function Mojiretu_CHENGE_SETTING () {
     basic.showString("N")
     basic.showString("G")
 }
-control.inBackground(function () {
-    シリアルポートの設定２段階目()
-})
 control.inBackground(function () {
     シリアルポートの設定１段階目()
 })
@@ -382,4 +419,10 @@ control.inBackground(function () {
 })
 control.inBackground(function () {
     Chenge_Item_Real()
+})
+control.inBackground(function () {
+    Main_Command(1)
+})
+control.inBackground(function () {
+    シリアルポートの設定２段階目()
 })
