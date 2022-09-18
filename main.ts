@@ -2,27 +2,9 @@ let Chenge_Item = 0
 let List_Number = 0
 let Chenge_SerialPort = 0
 let Chenge_Mode = 0
+let Allow_Run_Data = 0
+let Fin__Traffic = 0
 let Program_1 = ""
-let Chenge_Value = 0
-let Confirmation = 0
-let List_1 = 0
-let Decision_Value = 0
-let List_2 = 0
-let List_3 = 0
-let List_4 = 0
-let List_5 = 0
-let List_6 = 0
-let List_7 = 0
-let List_8 = 0
-let List_9 = 0
-let List_10 = 0
-let List_11 = 0
-let List_12 = 0
-let List_14 = 0
-let Tentative_Value = 0
-let Allow_Chenge_Setting = 0
-let List_13 = 0
-let Setting_Data = ""
 let Program_2 = ""
 let Program_3 = ""
 let Program_4 = ""
@@ -42,17 +24,32 @@ let Program_17 = ""
 let Program_18 = ""
 let Program_19 = ""
 let Program_20 = ""
-let Allow_Run_Data = 0
-function Chenge_Item_Real () {
-    if (Chenge_Item == 1) {
-        List_Number += -1
-        Chenge_Item = 0
-    }
-    if (Chenge_Item == 2) {
-        List_Number += 1
-        Chenge_Item = 0
-    }
-}
+let Chenge_Value = 0
+let Confirmation = 0
+let List_1 = 0
+let Decision_Value = 0
+let List_2 = 0
+let List_3 = 0
+let List_4 = 0
+let List_5 = 0
+let List_6 = 0
+let List_7 = 0
+let List_8 = 0
+let List_9 = 0
+let List_10 = 0
+let List_11 = 0
+let List_12 = 0
+let List_13 = 0
+let List_14 = 0
+let List_15 = 0
+let List_16 = 0
+let List_17 = 0
+let List_18 = 0
+let List_19 = 0
+let List_20 = 0
+let Tentative_Value = 0
+let Allow_Chenge_Setting = 0
+let Setting_Data = ""
 function reset_karidata () {
     let karidata: number[] = []
     karidata[1] = 0
@@ -86,6 +83,16 @@ function reset_karidata () {
     karidata[29] = 0
     karidata[30] = 0
 }
+function Chenge_Item_Real () {
+    if (Chenge_Item == 1) {
+        List_Number += -1
+        Chenge_Item = 0
+    }
+    if (Chenge_Item == 2) {
+        List_Number += 1
+        Chenge_Item = 0
+    }
+}
 function Chenge_Item_Value () {
     if (pins.digitalReadPin(DigitalPin.P11) == 1) {
         Chenge_Item = 1
@@ -113,11 +120,135 @@ function Chenge_Mode_Value () {
         Chenge_Mode = 2
     }
 }
-function Main_Command (Run_OK: number) {
-    while (Run_OK == 1) {
-        if (true) {
-            serial.writeLine(Program_1)
+function Fin_Traffic () {
+	
+}
+function Main_Command () {
+    while (Allow_Run_Data == 1) {
+        Fin__Traffic = 0
+        if (parseFloat(Program_1.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_1.split(",")[1]); index++) {
+                serial.writeLine(Program_1)
+                basic.pause(parseFloat(Program_1.split(",")[0]) * 1000)
+            }
         }
+        if (parseFloat(Program_2.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_2.split(",")[1]); index++) {
+                serial.writeLine(Program_2)
+                basic.pause(parseFloat(Program_2.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_3.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_3.split(",")[1]); index++) {
+                serial.writeLine(Program_3)
+                basic.pause(parseFloat(Program_3.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_4.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_4.split(",")[1]); index++) {
+                serial.writeLine(Program_4)
+                basic.pause(parseFloat(Program_4.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_5.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_5.split(",")[1]); index++) {
+                serial.writeLine(Program_5)
+                basic.pause(parseFloat(Program_5.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_6.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_6.split(",")[1]); index++) {
+                serial.writeLine(Program_6)
+                basic.pause(parseFloat(Program_6.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_7.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_7.split(",")[1]); index++) {
+                serial.writeLine(Program_7)
+                basic.pause(parseFloat(Program_7.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_8.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_8.split(",")[1]); index++) {
+                serial.writeLine(Program_8)
+                basic.pause(parseFloat(Program_8.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_9.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_9.split(",")[1]); index++) {
+                serial.writeLine(Program_9)
+                basic.pause(parseFloat(Program_9.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_10.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_10.split(",")[1]); index++) {
+                serial.writeLine(Program_10)
+                basic.pause(parseFloat(Program_10.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_11.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_11.split(",")[1]); index++) {
+                serial.writeLine(Program_11)
+                basic.pause(parseFloat(Program_11.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_12.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_12.split(",")[1]); index++) {
+                serial.writeLine(Program_12)
+                basic.pause(parseFloat(Program_12.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_13.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_13.split(",")[1]); index++) {
+                serial.writeLine(Program_13)
+                basic.pause(parseFloat(Program_13.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_14.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_14.split(",")[1]); index++) {
+                serial.writeLine(Program_14)
+                basic.pause(parseFloat(Program_14.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_15.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_15.split(",")[1]); index++) {
+                serial.writeLine(Program_15)
+                basic.pause(parseFloat(Program_15.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_16.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_16.split(",")[1]); index++) {
+                serial.writeLine(Program_16)
+                basic.pause(parseFloat(Program_16.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_17.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_17.split(",")[1]); index++) {
+                serial.writeLine(Program_17)
+                basic.pause(parseFloat(Program_17.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_18.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_18.split(",")[1]); index++) {
+                serial.writeLine(Program_18)
+                basic.pause(parseFloat(Program_18.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_19.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_19.split(",")[1]); index++) {
+                serial.writeLine(Program_19)
+                basic.pause(parseFloat(Program_19.split(",")[0]) * 1000)
+            }
+        }
+        if (parseFloat(Program_20.split("=")[1]) == 1) {
+            for (let index = 0; index < parseFloat(Program_20.split(",")[1]); index++) {
+                serial.writeLine(Program_20)
+                basic.pause(parseFloat(Program_20.split(",")[0]) * 1000)
+            }
+        }
+    }
+    if (Allow_Run_Data == 0) {
+        Fin_Traffic()
     }
 }
 function Chenge_Value_Value () {
@@ -241,11 +372,75 @@ function Chenge_Item_List () {
         basic.showString("" + (List_12))
     }
     if (List_Number == 13) {
-        basic.showString("OK?")
+        basic.showString("L13")
+        while (Confirmation == 0) {
+            basic.pause(1000)
+        }
+        List_13 = Decision_Value
+        basic.showString("" + (List_13))
+    }
+    if (List_Number == 14) {
+        basic.showString("L14")
         while (Confirmation == 0) {
             basic.pause(1000)
         }
         List_14 = Decision_Value
+        basic.showString("" + (List_14))
+    }
+    if (List_Number == 15) {
+        basic.showString("L15")
+        while (Confirmation == 0) {
+            basic.pause(1000)
+        }
+        List_15 = Decision_Value
+        basic.showString("" + (List_15))
+    }
+    if (List_Number == 16) {
+        basic.showString("L16")
+        while (Confirmation == 0) {
+            basic.pause(1000)
+        }
+        List_16 = Decision_Value
+        basic.showString("" + (List_16))
+    }
+    if (List_Number == 17) {
+        basic.showString("L17")
+        while (Confirmation == 0) {
+            basic.pause(1000)
+        }
+        List_17 = Decision_Value
+        basic.showString("" + (List_17))
+    }
+    if (List_Number == 18) {
+        basic.showString("L18")
+        while (Confirmation == 0) {
+            basic.pause(1000)
+        }
+        List_18 = Decision_Value
+        basic.showString("" + (List_18))
+    }
+    if (List_Number == 19) {
+        basic.showString("L19")
+        while (Confirmation == 0) {
+            basic.pause(1000)
+        }
+        List_19 = Decision_Value
+        basic.showString("" + (List_19))
+    }
+    if (List_Number == 20) {
+        basic.showString("L20")
+        while (Confirmation == 0) {
+            basic.pause(1000)
+        }
+        List_20 = Decision_Value
+        basic.showString("" + (List_20))
+    }
+    if (List_Number == 20) {
+        basic.showString("OK?")
+        while (Confirmation == 0) {
+            basic.pause(1000)
+        }
+        List_20 = Decision_Value
     }
 }
 function Chenge_Value_Real () {
@@ -279,13 +474,13 @@ function Setting_Chenge () {
     }
 }
 function apply_list () {
-    if (List_13 == 1) {
-        List_13 = 0
+    if (List_20 == 1) {
+        List_20 = 0
         Write_Setting()
         basic.showString("Complete Apply!")
         Allow_Chenge_Setting = 0
     } else {
-        List_Number = 12
+        List_Number = 19
     }
 }
 function シリアルポートの設定２段階目 () {
@@ -328,14 +523,14 @@ function Reset_Setting_List () {
 }
 function BackOne_or_Back_10 () {
     if (List_Number == 0) {
-        List_Number = 12
+        List_Number = 19
     }
-    if (List_Number == 14) {
-        List_Number = 12
+    if (List_Number == 21) {
+        List_Number = 1
     }
 }
 function Write_Setting () {
-    Setting_Data = "" + List_1 + "," + List_2 + "," + List_3 + "," + List_4 + "," + List_5 + "," + List_6 + "," + List_7 + "," + List_8 + "," + List_9 + "," + List_10 + "," + List_11 + "," + List_12
+    Setting_Data = "" + List_1 + "=" + List_2 + "=" + List_3 + "," + List_4 + "," + List_5 + "," + List_6 + "," + List_7 + "," + List_8 + "," + List_9 + "," + List_10 + "," + List_11 + "," + List_12 + ""
     if (Setting_Data.split("=")[0] == "1") {
         Program_1 = Setting_Data
     } else if (Setting_Data.split("=")[0] == "2") {
@@ -421,8 +616,13 @@ control.inBackground(function () {
     Chenge_Item_Real()
 })
 control.inBackground(function () {
-    Main_Command(1)
+    Main_Command()
 })
 control.inBackground(function () {
     シリアルポートの設定２段階目()
+})
+control.inBackground(function () {
+    if (Allow_Run_Data == 0) {
+    	
+    }
 })
